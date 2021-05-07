@@ -1,0 +1,79 @@
+.element-input{
+    text-align:center;
+}
+
+.vector-element-input{
+    width: 90px;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.matrix-element-input{
+    width: 100px;
+    height: 56px;
+}
+
+.operator{
+    width: 50px;
+    border: none !important;
+}
+
+.matrix-operator{
+    width: 100px;
+    border: none !important;
+}
+
+.size-input{
+    width: 40px;
+}
+
+.center-block {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.determinant-left {
+    border-top: none;
+    border-bottom: none;
+    border-left: groove;
+    border-right: none;
+}
+
+.determinant-right {
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: groove;
+}
+
+.determinant-center {
+    border: none;
+}
+
+.determinant-calc {
+    border: groove;
+}
+
+.matrix-center{
+    border: none;
+}
+
+.matrix-left{
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+.matrix-right{
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.gaussian-right{
+    border-top: none;
+    border-bottom: none;
+    border-left: dashed;
+    border-right: groove;
+}

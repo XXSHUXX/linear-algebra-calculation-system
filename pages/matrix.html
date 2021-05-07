@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>matrix</title>
+
+    <link type="text/css" rel="stylesheet" href="../resources/libs/bootstrap-4.4.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../resources/css/main.css">
+
+    <script src="../resources/js/translation/t_matrix.js"></script>
+    <script src="../resources/libs/Popper/1.12.9_popper.js"></script>
+    <script src="../resources/libs/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="../resources/libs/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+    <script src="../resources/js/classes.js"></script>
+    <script src="../resources/js/matrix.js"></script>
+
+</head>
+<body>
+<div class="page-header">
+    <div class="btn-group" role="group">
+        <button type="button" data-language="zh" class="language-selector btn btn-secondary">中文</button>
+        <button type="button" data-language="en" class="language-selector btn btn-secondary">English</button>
+        <button type="button" data-language="ja" class="language-selector btn btn-secondary">日本語</button>
+    </div>
+    <div style="float:right">
+        <a class="btn btn-danger" href="../index.html" data-translation="go_back"></a>
+    </div>
+</div>
+
+<div class="page-main container-fluid">
+<!--    <h4 id="title" class="display-4 text-center" data-translation="matrix_plus"></h4>-->
+    <div class="row">
+        <div class="col text-center">
+            <button
+                    id="title"
+                    type="button"
+                    class="btn btn-info mb-2 display-4"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                    data-translation="matrix_plus"
+            >
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button
+                    id="do_back"
+                    type="button"
+                    class="btn btn-success mb-2 step-control-button"
+                    data-translation="back"
+                    style="visibility:hidden;"
+            >
+            </button>
+            <button
+                    id="do_calc"
+                    type="button"
+                    class="btn btn-primary mb-2"
+                    data-translation="go"
+            >
+            </button>
+            <button
+                    id="do_next"
+                    type="button"
+                    class="btn btn-success mb-2 step-control-button"
+                    data-translation="next"
+                    style="visibility:hidden;"
+            >
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+
+        </div>
+    </div>
+
+    <div id="input_matrix_div" class="row align-items-center">
+        <div class="text-center col">
+            <div class="center-block matrix-show-div" data-template_row="matrix-row-template" data-template_element="matrix-element-template">
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <input id="matrix-operator" class="form-control element-input operator" style="background-color: white;" value="+" readonly>
+        </div>
+
+        <div class="text-center col">
+            <div class="center-block matrix-show-div" data-template_row="matrix-row-template" data-template_element="matrix-element-template">
+
+            </div>
+        </div>
+
+        <div class="text-center">
+                <input class="form-control element-input operator" style="background-color: white;" value="=" readonly>
+        </div>
+
+        <div class="text-center col">
+            <div class="center-block matrix-show-div" data-template_row="matrix-row-template" data-template_element="matrix-element-template">
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div id="vector-anime-div" class="row">
+        <div class="vector-show-div" hidden></div>
+        <div class="vector-show-div" hidden></div>
+        <div class="col-6">
+            <div class="center-block vector-show-div" data-template="vector-calculation-template">
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="center-block vector-show-div" data-template="vector-result-template">
+
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="center-block">
+                <div class="input-group vector-show-div" data-template="multi-calculation-template">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+            <div class="modal-body text-center">
+                <label>
+                    <select id="calculation-type" class="form-control mb-3">
+                        <option value="plus" data-translation="matrix_plus"></option>
+                        <option value="minus" data-translation="matrix_minus"></option>
+                        <option value="multi" data-translation="matrix_multi"></option>
+<!--                        <option value="inverse" data-translation="matrix_inverse"></option>-->
+                        <option value="transpose" data-translation="matrix_transpose"></option>
+                    </select>
+                </label>
+                <div class="mb-3 center-block">
+                    <div id="first-size-div" class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" data-translation="first_matrix_size"></span>
+                        </div>
+                        <input id="first-matrix-height" class="first-matrix-size form-control size-input" maxlength="1">
+                        <input class="form-control size-input text-center" value="*" disabled>
+                        <input id="first-matrix-width" class="first-matrix-size form-control size-input" maxlength="1">
+                    </div>
+                    <div id="second-size-div" class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" data-translation="second_matrix_size"></span>
+                        </div>
+                        <input id="second-matrix-height" class="second-matrix-size form-control size-input" maxlength="1">
+                        <input class="form-control size-input text-center" value="*" disabled>
+                        <input id="second-matrix-width" class="second-matrix-size form-control size-input" maxlength="1">
+                    </div>
+                </div>
+                <button id="confirm-calculation-type"
+                        class="btn btn-success"
+                        type="button"
+                        data-dismiss="modal"
+                        data-translation="confirm">
+                </button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</body>
+</html>
